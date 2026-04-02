@@ -1,0 +1,81 @@
+{{- /*
+SPDX-License-Identifier: MIT
+SPDX-FileCopyrightText: 2026 FreeCAD
+SPDX-FileNotice: Part of the Trigo theme for Hugo.
+*/ -}}
+
+{{- /* Pagination for Single pages:
+
+  - Set Navigation links to Previous and Next pages within current Section
+  - Set links to Previous and Next Sections if first and end pages in Section.
+
+  @returns {template.HTML}
+*/ -}}
+
+
+{{- $page := . -}}
+{{- $current_section := .CurrentSection -}}
+{{- $pages := $current_section.RegularPages -}}
+
+{{- with $pages -}}
+  <footer class="single-footer">
+    <nav class="pagination">
+
+      {{- range $direction, $icon := dict
+        "prev" "tri_right"
+        "next" "tri_left"
+      -}}
+
+        {{- $item := "" -}}
+        {{- $type := "" -}}
+
+        {{- if eq $direction "prev" -}}
+          {{- $item = $pages.Prev $page -}}
+        {{- else -}}
+          {{- $item = $pages.Next $page -}}
+        {{- end -}}
+
+        {{- if $item -}}
+          {{- $type = "article" -}}
+
+        {{- else if not $current_section.Parent.IsHome -}}
+          {{- $siblings := $current_section.Parent.Sections.ByWeight -}}
+
+          {{- if eq $direction "prev" -}}
+            {{- $item = $siblings.Prev $current_section -}}
+          {{- else -}}
+            {{- $item = $siblings.Next $current_section -}}
+          {{- end -}}
+
+          {{- if $item -}}
+            {{- $type = "section" -}}
+            {{- $icon = "folder" -}}
+          {{- end -}}
+        {{- end -}}
+
+        {{- with $item -}}
+          <a class="page-item {{ $direction }}"
+             href="{{ .RelPermalink }}"
+             title="{{ i18n (printf "%s_%s" $direction $type) | default (printf "%s %s" (title $direction) $type) }}">
+
+            {{- if eq $direction "next" -}}
+              {{- partialCached "utils/icon.html" $icon $icon -}}
+            {{- end -}}
+              {{- .LinkTitle -}}
+            {{- if eq $direction "prev" -}}
+              {{- partialCached "utils/icon.html" $icon $icon -}}
+            {{- end -}}
+
+            {{- if not hugo.IsProduction -}}
+              {{- with .Weight -}}
+                <span style="color: crimson;">Weight: {{ . }}</span>
+              {{- end -}}
+            {{- end -}}
+          </a>
+        {{- end -}}
+
+      {{- end -}}
+
+    </nav>
+  </footer>
+{{- end -}}

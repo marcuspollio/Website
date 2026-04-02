@@ -1,0 +1,21 @@
+{{- /*
+SPDX-License-Identifier: MIT
+SPDX-FileCopyrightText: 2026 FreeCAD
+SPDX-FileNotice: Part of the Trigo theme for Hugo.
+*/ -}}
+
+{{- /* Social medias link:
+
+  - Get social media links and icons.
+*/ -}}
+
+
+{{- range site.Params.socials -}}
+  {{- range $social, $url := . -}}
+    <a href="{{ $url }}"
+      title="{{ i18n $social | default $social | title }}"
+      target="_blank" rel="noopener">
+      {{- partialCached "utils/icon.html" $social (lower $social) -}}
+    </a>
+  {{- end -}}
+{{- end -}}

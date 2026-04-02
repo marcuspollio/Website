@@ -1,0 +1,29 @@
+{{- /*
+SPDX-License-Identifier: MIT
+SPDX-FileCopyrightText: 2026 FreeCAD
+SPDX-FileNotice: Part of the Trigo theme for Hugo.
+*/ -}}
+
+{{- /* Centralize JavaScript dependencies and custom scripts:
+
+  - Defer loading of JS after HTML is fully parsed and DOM elements are available (also performance).
+*/ -}}
+
+
+{{- /* Theme Chroma toggle. */ -}}
+{{- partialCached "scripts/chroma.html" . "chroma" -}}
+
+{{- /* Copy Code block content to clipboard. */ -}}
+{{- if and site.Params.enable_js_copy (in (slice "page" "section") .Kind) (ne .Layout "archives") -}}
+  {{- partialCached "scripts/copy.html" . "copy" -}}
+{{- end -}}
+
+{{- /* Auto-open Details block with anchor link. */ -}}
+{{- if and site.Params.enable_js_details (in (slice "page" "section") .Kind) (ne .Layout "archives") (in .Content "<details") -}}
+  {{- partialCached "scripts/details.html" . "details" -}}
+{{- end -}}
+
+{{- /* Table of Contents position highlight. */ -}}
+{{- if and site.Params.enable_js_toc (in (slice "page" "section") .Kind) (ne .Layout "archives") -}}
+  {{- partialCached "scripts/toc.html" . "toc" -}}
+{{- end -}}
