@@ -17,8 +17,7 @@
 
 Welcome to the source of the [FreeCAD website](https://www.freecad.org)!
 
-The content, assets, theme code and style are all gathered in this repository.
-The site is statically generated thanks to [Hugo](https://gohugo.io/), a fast and flexible static site generator written in Golang.
+The content, assets, theme code and style are all gathered in this repository. The site is statically generated thanks to [Hugo](https://gohugo.io/), a fast and flexible static site generator written in Golang.
 
 For other parts of FreeCAD web ecosystem, head to:
 
@@ -32,18 +31,12 @@ For other parts of FreeCAD web ecosystem, head to:
 ## Contributions
 
 Contributions are always welcome!
+
 The FreeCAD website source is freely accessible and open just like FreeCAD.
 
-When contributing to the website, keep in mind that it acts as the public face of the FreeCAD organization and community.
-Substantial changes must be discussed beforehand via its usual communication channels
-(e.g. [GitHub](https://github.com/FreeCAD/website/issues), [Matrix chat](https://matrix.to/#/#FreeCAD_FreeCAD:gitter.im), [Forum](https://forum.freecad.org/)).
-[FreeCAD's code of conduct](https://github.com/FreeCAD/website/blob/main/CODE_OF_CONDUCT.md) must be observed at any time.
-Please also read the [Guidelines](#guidelines) below.
+When contributing to the website, keep in mind that it acts as the public face of the FreeCAD organization and community. Substantial changes must be discussed beforehand via its usual communication channels (e.g. [GitHub](https://github.com/FreeCAD/website/issues), [Matrix chat](https://matrix.to/#/#FreeCAD_FreeCAD:gitter.im), [Forum](https://forum.freecad.org/)). [FreeCAD's code of conduct](https://github.com/FreeCAD/website/blob/main/CODE_OF_CONDUCT.md) must be observed at any time. Please also read the [Guidelines](#guidelines) below.
 
-Contributions of all kinds are welcome: content, translations, bug fixes, theme improvements, testing, documentation, bug reports, and more...
-Depending on the scope, some basic know-how of Git, Markdown, HTML, CSS, Javascript, YAML/JSON and Hugo template syntax is recommended.
-Create appropriate [feature issues](https://github.com/FreeCAD/website/issues) to discuss substantial changes before submitting Pull Requests.
-Also use the appropriate [Pull Request template](https://github.com/FreeCAD/website/pulls) and make sure reviewers are assigned.
+Contributions of all kinds are welcome: content, translations, bug fixes, theme improvements, testing, documentation, bug reports, and more... Depending on the scope, some basic know-how of Git, Markdown, HTML, CSS, Javascript, YAML/JSON and Hugo template syntax is recommended. Create appropriate [feature issues](https://github.com/FreeCAD/website/issues) to discuss substantial changes before submitting Pull Requests. Also use the appropriate [Pull Request template](https://github.com/FreeCAD/website/pulls) and make sure reviewers are assigned.
 
 For bug report, use the provided [bug issues](https://github.com/FreeCAD/website/issues) template.
 
@@ -100,47 +93,39 @@ This project uses a `development` > `testing` > `production` environments logic:
 - The `testing` environment is the `main` branch of this `website` repository. The result can be seen on [GitHub Pages](https://freecad.github.io/website/).
 - The `production` environment is hosted on FreeCAD's server. The result can be seen on [FreeCAD website](https://www.freecad.org).
 
-Testing builds deployment to GitHub Pages is done automatically by workflow Actions whenever the `main` branch receives a new commit.
-The built artifacts are stored in the `pages` branch (extracted from the `public` dir when the `hugo` command is run).
-The official website version is built from the `prod` branch instead.
+Testing builds deployment to GitHub Pages is done automatically by workflow Actions whenever the `main` branch receives a new commit. The built artifacts are stored in the `pages` branch (extracted from the `public` dir when the `hugo` command is run). The official website version is built from the `prod` branch instead.
 
 
 ## Structure
 
 ### Use and navigation overview
 
-The website uses a simple folder-based structure.
-The Homepage links to main sections (e.g. Features, Download, News) which may contain sub-sections (e.g. Release notes, User documentation).
-All content is stored in files and the structure is kept to a minimum number of levels for ease.
+The website uses a simple folder-based structure. The Homepage links to main sections (e.g. Features, Download, News) which may contain sub-sections (e.g. Release notes, User documentation). All content is stored in files and the structure is kept to a minimum number of levels for ease.
 
-The website is multilingual, with English being the default language.
-Available translated content in any enabled language is accessible using the language dropdown in the header.
+The website is multilingual, with English being the default language. Available translated content in any enabled language is accessible using the language dropdown in the header.
 
 A light and dark chroma version of the Theme is available on the sun/moon icon on the top header.
 
 ### Technical overview
 
-[Hugo](https://gohugo.io), the static site generator used, takes the plain-text content (typically Markdown) and data files (typically CSV, JSON, XML and YAML),
-marries them to an appropriate set of templates and produces a complete set of HTML pages (with CSS and Javascript) that can be served by any generic standalone web server.
+[Hugo](https://gohugo.io), the static site generator used, takes the plain-text content (typically Markdown) and data files (typically CSV, JSON, XML and YAML), marries them to an appropriate set of templates and produces a complete set of HTML pages (with CSS and Javascript) that can be served by any generic standalone web server.
 
 To understand how Hugo works, read its [Official documentation](https://gohugo.io/documentation/).
 
 ### Content and metadata
 
-To simply change or create content (e.g News articles), first read the [Guidelines](#guidelines) and
-then the [Content Management System](#cms) that provides a user-friendly way to manage content.
+To simply change or create content (e.g News articles), first read the [Guidelines](#guidelines) and then the [Content Management System](#cms) that provides a user-friendly way to manage content.
 
 Here is how content is organized for curious and tech-savvy contributors:
 
 There are two main types of content files:
+
 - **Single** (`index.md`) pages are in general where most changes are made.
 - **List** (`_index.md`) pages in general gather content from related **Single** pages and need little changes.
 
-All linked resources for a specific page (e.g. illustrations, translations, assets) are stored in the same folder as the page itself.
-This method is called a [leaf bundle](https://gohugo.io/content-management/page-bundles/) and makes relative links easy and content tidy.
+All linked resources for a specific page (e.g. illustrations, translations, assets) are stored in the same folder as the page itself. This method is called a [leaf bundle](https://gohugo.io/content-management/page-bundles/) and makes relative links easy and content tidy.
 
-These files are mostly written with Markdown and contain a metadata header called the Front Matter at the top of the file in-between the YAML `---` characters.
-How content from **Single** and **List** pages is generated into HTML is defined by Hugo templates in the [Theme](#theme).
+These files are mostly written with Markdown and contain a metadata header called the Front Matter at the top of the file in-between the YAML `---` characters. How content from **Single** and **List** pages is generated into HTML is defined by Hugo templates in the [Theme](#theme).
 
 
 ## Guidelines
@@ -168,15 +153,11 @@ How content from **Single** and **List** pages is generated into HTML is defined
 ![alternative text for image](img.webp “image caption”)
 ```
 
-Please avoid adding links to images (e.g. `[![alt](img.webp)](link)`) as the Markdown parser and render hooks mix HTML block-level with inline elements, which is invalid.
-Use the `figure` shortcode instead, or add links to nearby heading, text or caption.
+Please avoid adding links to images (e.g. `[![alt](img.webp)](link)`) as the Markdown parser and render hooks mix HTML block-level with inline elements, which is invalid. Use the `figure` shortcode instead, or add links to nearby heading, text or caption.
 
-Currently, only static images (no animations) are used. A minimum width of about 2000 pixels is recommended.
-The WebP graphics file format is recommended as well. AVIF is currently not supported.
+Currently, only static images (no animations) are used. A minimum width of about 2000 pixels is recommended. The WebP graphics file format is recommended as well. AVIF is currently not supported.
 
-Template actions in the Theme resize and crop images at build time depending on their use.
-The [Content Management System](#cms) also resize uploaded images at the correct resolution.
-Content contributors only need to add one WebP file about 2000px wide.
+Template actions in the Theme resize and crop images at build time depending on their use. The [Content Management System](#cms) also resize uploaded images at the correct resolution. Content contributors only need to add one WebP file about 2000px wide.
 
 ### Translations
 
@@ -186,8 +167,7 @@ Translations of the content are stored in the same folder ([leaf bundle](https:/
 
 Translations of the Theme are handled by translations tables in `themes/trigo/i18n`.
 
-Before a new language is enabled, the main navigation pages (Homepage, Features, Download, News, Community, Documentation and Donate) and the Theme strings must be translated.
-If willing to add a new language, use the provided [feature issue](https://github.com/FreeCAD/website/issues) template indicating who will translate and who will proof-read/review.
+Before a new language is enabled, the main navigation pages (Homepage, Features, Download, News, Community, Documentation and Donate) and the Theme strings must be translated. If willing to add a new language, use the provided [feature issue](https://github.com/FreeCAD/website/issues) template indicating who will translate and who will proof-read/review.
 
 
 ## CMS
@@ -195,9 +175,7 @@ If willing to add a new language, use the provided [feature issue](https://githu
 > [!NOTE]
 > Currently the CMS is WIP and its structure and content may change in the near future.
 
-A server-less Content Management System is available to manage content easily. It is based on the [Sveltia CMS](https://github.com/sveltia/sveltia-cms) project.
-A single JavaScript interacts with the Git repository of the website. It can be used locally on supported web browsers (currently only Chromium-based) or via GitHub login.
-Pages, translations and resources such as illustrations can be added, edited or deleted directly from the content panel of available collections.
+A server-less Content Management System is available to manage content easily. It is based on the [Sveltia CMS](https://github.com/sveltia/sveltia-cms) project. A single JavaScript interacts with the Git repository of the website. It can be used locally on supported web browsers (currently only Chromium-based) or via GitHub login. Pages, translations and resources such as illustrations can be added, edited or deleted directly from the content panel of available collections.
 
 
 ## Theme
@@ -222,18 +200,14 @@ This repository is licensed under the [GNU Lesser General Public License Version
 
 ### Content
 
-Content of the website is licensed under [Creative Commons Attribution ShareAlike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/ "Read the license").
-By default, it is copyrighted by and attributed to "FreeCAD". If they wish so, authors can specify the respective attribution for the content they produce.
-For Markdown files, the attribution is specified in the `author` field of the Front Matter.
+Content of the website is licensed under [Creative Commons Attribution ShareAlike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/ "Read the license"). By default, it is copyrighted by and attributed to "FreeCAD". If they wish so, authors can specify the respective attribution for the content they produce. For Markdown files, the attribution is specified in the `author` field of the Front Matter.
 
-By submitting Pull Requests to this repository, make sure who is the author of the content.
-Make sure rights to share under the CC-BY-SA 4.0 license and original author mention are respected.
-Also note that sharing images with people is subject to obtaining appropriate consent.
+By submitting Pull Requests to this repository, make sure who is the author of the content. Make sure rights to share under the CC-BY-SA 4.0 license and original author mention are respected. Also note that sharing images with people is subject to obtaining appropriate consent.
 
 ### FreeCAD branded resources
 
 The trademark of FreeCAD branded resources (e.g. FreeCAD logo) is registered and owned by the [FreeCAD Project Association](https://fpa.freecad.org/handbook "Read the FPA Handbook").
 
-### Theme
+### Trigo Theme for Hugo
 
 The `Trigo` Theme is licensed under the [MIT License](https://github.com/FreeCAD/website/blob/main/themes/trigo/LICENSE "Read the license text").
